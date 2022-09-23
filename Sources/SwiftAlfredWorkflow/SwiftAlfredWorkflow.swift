@@ -1,13 +1,19 @@
+import Commander
+
 @main
 public struct SwiftAlfredWorkflow {
     
-    public init() {
-        
-    }
-    
-    public private(set) var text = "Hello, World!"
-
     public static func main() {
-        print(SwiftAlfredWorkflow().text)
+        print("debug0000 main start")
+        let g = Group {
+          $0.command("login") { (name:String) in
+            print("Hello \(name)")
+          }
+          $0.command("logout") {
+            print("Goodbye.")
+          }
+        }
+        g.run()
+        print("debug0000 main end") // Never be executed
     }
 }
